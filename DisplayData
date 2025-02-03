@@ -1,0 +1,15 @@
+const express = require("express"); // Importing the Express framework
+const router = express.Router(); // Creating an instance of Express router
+
+// Route to handle POST requests to retrieve food data
+router.post("/foodData", (req, res) => {
+  try {
+    // Sending food data stored in global variables as response
+    res.send([global.food_items, global.foodCategory]);
+  } catch (error) {
+    // Handling server error
+    res.send("Server Error");
+  }
+});
+
+module.exports = router; // Exporting the router for use in other parts of the application
